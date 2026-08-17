@@ -12,6 +12,7 @@ const schema = z.object({
   website: z.string().max(0).optional().or(z.literal('')),
 });
 
+
 const TO = 'hello@holistiqnexus.com';
 const FROM = 'Holistiq Nexus <noreply@holistiqnexus.com>';
 
