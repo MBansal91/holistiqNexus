@@ -1,0 +1,61 @@
+---
+---
+<form class="contact-form" id="contact-form" method="POST" action="/api/contact" novalidate>
+  <div>
+    <label for="cf-name">Name</label>
+    <input id="cf-name" name="name" type="text" required autocomplete="name" />
+  </div>
+  <div>
+    <label for="cf-email">Email</label>
+    <input id="cf-email" name="email" type="email" required autocomplete="email" />
+  </div>
+  <div>
+    <label for="cf-company">Company <span style="color:var(--text-muted); text-transform:none; letter-spacing:0;">(optional)</span></label>
+    <input id="cf-company" name="company" type="text" autocomplete="organization" />
+  </div>
+  <div>
+    <label for="cf-message">What are you trying to solve?</label>
+    <textarea id="cf-message" name="message" required></textarea>
+  </div>
+  <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+    <button type="submit" class="btn-primary" id="cf-submit">Send message</button>
+    <span class="form-status" id="cf-status" role="status" aria-live="polite"></span>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('cf-status');
+  const submit = document.getElementById('cf-submit') as HTMLButtonElement | null;
+  if (form && status && submit) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'form-status';
+      status.textContent = 'Sending…';
+      submit.disabled = true;
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok) {
+          status.className = 'form-status ok';
+          status.textContent = 'Thanks — we’ll be in touch shortly.';
+          form.reset();
+        } else {
+          status.className = 'form-status err';
+          status.textContent = json.error || 'Something went wrong. Try emailing hello@holistiqnexus.com directly.';
+        }
+      } catch {
+        status.className = 'form-status err';
+        status.textContent = 'Network error. Try emailing hello@holistiqnexus.com directly.';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  }
+</script>

@@ -1,0 +1,237 @@
+---
+import '../styles/global.css';
+import NexusDiagram from '../components/NexusDiagram.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const CAL_URL = 'https://cal.com/holistiq-nexus/consult';
+const title = 'Holistiq Nexus — Salesforce Architecture & Systems Integration';
+const description = 'Salesforce Field Service, Sales, and Service Cloud architecture and integration — designed to stay reliable once connected to your ERPs, event pipelines, and external systems.';
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Holistiq Nexus" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-logo"><span class="mark"></span>HOLISTIQ NEXUS</div>
+        <div class="nav-links">
+          <a href="#audience">Who we work with</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#expect">What to expect</a>
+        </div>
+        <a href="#contact" class="nav-cta">Start a conversation</a>
+      </div>
+    </nav>
+
+    <section class="hero" style="border-top:none;">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="eyebrow">Salesforce Architecture &amp; Systems Integration</div>
+          <h1>Your systems should talk to each other. <em>We make sure they do — correctly.</em></h1>
+          <p class="lede">Holistiq Nexus designs and delivers Salesforce Field Service, Sales, and Service Cloud implementations that hold up once they’re connected to everything else — ERPs, external platforms, event pipelines, and the systems your business already runs on.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Book an architecture consult</a>
+            <a href="#services" class="btn-ghost">See what we build</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>Founder-led</strong>No handoff to junior staff</div>
+            <div><strong>Fixed-scope</strong>SOW before a line of config</div>
+            <div><strong>Field-tested</strong>Built on real delivery, not theory</div>
+          </div>
+        </div>
+        <NexusDiagram />
+      </div>
+    </section>
+
+    <section id="audience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Who we work with</div>
+          <h2>Built for teams past the “just configure it” stage</h2>
+          <p>Holistiq Nexus is for organizations where Salesforce is no longer a standalone tool — it needs to move data, trigger actions, and stay in sync with everything else the business runs on.</p>
+        </div>
+        <div class="audience-grid">
+          <div class="audience-card reveal">
+            <div class="id mono">// 01</div>
+            <h3>Operations &amp; Field Service leaders</h3>
+            <p>Running dispatch, work orders, and technicians through Salesforce, and hitting the limits of out-of-the-box Field Service Lightning as the operation scales.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="id mono">// 02</div>
+            <h3>IT &amp; Ops directors managing multiple systems</h3>
+            <p>Salesforce needs to talk to an ERP, an asset platform, or an external partner API — reliably, in near real time, without duct-taped middleware.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="id mono">// 03</div>
+            <h3>Salesforce partners &amp; ISVs</h3>
+            <p>Smaller implementation partners who need a senior architect for the integration-heavy piece of a client engagement, without hiring full-time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">What we deliver</div>
+          <h2>Four ways to bring us in</h2>
+          <p>Every engagement starts scoped and ends documented. No open-ended hours, no black-box configuration.</p>
+        </div>
+
+        <div class="service-row reveal">
+          <div class="service-tag mono">ARCH / 01</div>
+          <div class="service-body">
+            <h3>Salesforce solution architecture</h3>
+            <p>End-to-end design across Sales Cloud and Service Cloud — object models, automation strategy, sharing architecture, and the decisions that determine whether the org still makes sense in three years.</p>
+            <ul>
+              <li>Sales Cloud</li><li>Service Cloud</li><li>Data model design</li><li>Governance &amp; sharing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-row reveal">
+          <div class="service-tag mono">FSL / 02</div>
+          <div class="service-body">
+            <h3>Field Service Lightning implementation</h3>
+            <p>Dispatch console, scheduling optimization, work order lifecycles, mobile technician flows, and asset tracking — built around how your field teams actually operate, not the demo org.</p>
+            <ul>
+              <li>Dispatch &amp; scheduling</li><li>Work order automation</li><li>Mobile flows</li><li>Asset management</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-row reveal">
+          <div class="service-tag mono">SYNC / 03</div>
+          <div class="service-body">
+            <h3>Systems integration architecture</h3>
+            <p>Event-driven and API-based sync between Salesforce and the rest of your stack — ERPs, external management platforms, and partner systems — designed for reliability under real production load, not just the happy path.</p>
+            <ul>
+              <li>Azure Event Hub</li><li>GraphQL</li><li>REST &amp; middleware</li><li>Bulk &amp; real-time sync</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-row reveal">
+          <div class="service-tag mono">ADV / 04</div>
+          <div class="service-body">
+            <h3>Fractional architecture advisory</h3>
+            <p>A standing monthly retainer for teams that need a senior architect on call — reviewing designs before they’re built, unblocking integration decisions, and keeping delivery teams honest on technical debt.</p>
+            <ul>
+              <li>Design reviews</li><li>Technical due diligence</li><li>Delivery unblocking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">How an engagement runs</div>
+          <h2>Four stages, in order, every time</h2>
+          <p>The sequence doesn’t change. What changes is how much time each stage takes, depending on scope.</p>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipeline-line"></div>
+          <div class="stage reveal">
+            <div class="stage-node">N1</div>
+            <h3>Discover</h3>
+            <p>We map what exists today — objects, integrations, pain points — before proposing anything. No solution gets designed against assumptions.</p>
+          </div>
+          <div class="stage reveal">
+            <div class="stage-node">N2</div>
+            <h3>Architect</h3>
+            <p>A written design: data model, integration pattern, sequencing, and trade-offs — reviewed and signed off before any build begins.</p>
+          </div>
+          <div class="stage reveal">
+            <div class="stage-node">N3</div>
+            <h3>Integrate</h3>
+            <p>Build and connect — Salesforce configuration, custom logic, and the integration layer to external systems, tested against real data volumes.</p>
+          </div>
+          <div class="stage reveal">
+            <div class="stage-node">N4</div>
+            <h3>Scale</h3>
+            <p>Handover documentation, monitoring, and — if you want it — an ongoing advisory retainer so the architecture stays sound as you grow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expect">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">What to expect</div>
+          <h2>How we’re different to work with</h2>
+          <p>Most of this comes down to one thing: you’re working directly with the person who designs the solution, not a name on a slide.</p>
+        </div>
+        <div class="expect-grid">
+          <div class="expect-item reveal">
+            <div class="glyph">→</div>
+            <div><h4>No bench, no bait-and-switch</h4><p>The architect you talk to in scoping is the one doing the design work. There’s no junior team swapped in after the sale.</p></div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="glyph">→</div>
+            <div><h4>Scope in writing, before work starts</h4><p>Every engagement has a signed SOW — what’s included, what’s billed separately, and what “done” looks like.</p></div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="glyph">→</div>
+            <div><h4>Documentation you can hand to anyone</h4><p>Architecture decisions, data flows, and design rationale are written down — not living only in one person’s head.</p></div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="glyph">→</div>
+            <div><h4>Built for what happens after go-live</h4><p>Designs account for scale and failure modes up front, so integrations don’t quietly break six months in.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="wrap">
+        <div class="section-tag" style="text-align:center;">Get in touch</div>
+        <h2>Tell us what your systems need to do.</h2>
+        <p>A short call is enough to know whether this is a fit — no obligation, no generic sales deck.</p>
+        <ContactForm />
+        <div class="hero-ctas" style="justify-content:center;">
+          <a href={CAL_URL} class="btn-ghost" target="_blank" rel="noopener">Or book a 20-min call →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <div>© 2026 Holistiq Nexus LLP. All rights reserved.</div>
+        <div style="display:flex; gap:24px;">
+          <a href="#audience">Who we work with</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
